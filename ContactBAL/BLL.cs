@@ -24,7 +24,21 @@ namespace ContactBAL
 
         public void Delete(Contact c)
         {
-            DLL.contactList.Where(x => x.Active == false);
+            var tempRecord = DLL.contactList.Where(x => x.contactid == c.contactid).Single();
+            tempRecord.first = c.first;
+            tempRecord.last = c.last;
+            tempRecord.phone = c.phone;
+            tempRecord.Bphone = c.Bphone;
+            tempRecord.address = c.address;
+            tempRecord.notes = c.notes;
+            tempRecord.Active = false;
+            foreach (Contact contact in DLL.contactList)
+            {
+                if(contact.Active == true)
+                {
+                    DLL.contactList.Add(contact);
+                }
+             }
         }
         public Contact Details(int id)
         {
@@ -33,7 +47,6 @@ namespace ContactBAL
         }
         public List<Contact> getAll()
         {
-            DLL.contactList.Where(x => x.Active == true);
             return DLL.contactList;
 
         }
