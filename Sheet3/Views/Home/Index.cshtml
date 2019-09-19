@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Entities.Contact>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.first)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.last)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bphone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.notes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.first)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.last)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bphone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.notes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.contactid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.contactid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.contactid })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,66 @@
+﻿@model Entities.Contact
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.first)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.first)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bphone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bphone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.notes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.notes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.contactid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
