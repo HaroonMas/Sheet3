@@ -15,7 +15,7 @@ namespace Entities
         public string Bphone {get; set;}
         public string address { get; set; }
         public string notes { get; set; }
-        public bool Active { get; set; }
+        public Boolean Active { get; set; }
 
    
 

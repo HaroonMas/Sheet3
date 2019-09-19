@@ -9,7 +9,7 @@ namespace ContactDAL
 {
     public class DLL
     {
-        public static int lastId = 0;
+        public static int lastId = 1;
         public static List<Contact> contactList = new List<Contact>();
     }
 }

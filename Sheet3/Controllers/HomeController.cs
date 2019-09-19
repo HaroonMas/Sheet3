@@ -49,7 +49,7 @@ namespace Sheet3.Controllers
         {
             DBManager db = new DBManager();
             var record = db.Details(id);
-            return View();
+            return View(record);
         }
 
         [HttpPost]
