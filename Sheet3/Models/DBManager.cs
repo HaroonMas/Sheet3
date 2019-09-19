@@ -19,9 +19,9 @@ namespace Sheet3.Models
 
             return newBLL.getAll();
         }
-        public void Delete(Contact c)
+        public void Delete(int id)
         {
-            newBLL.Delete(c);
+            newBLL.Delete(id);
 
         }
         public void Update(Contact c)

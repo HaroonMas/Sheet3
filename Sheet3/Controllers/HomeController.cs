@@ -37,11 +37,11 @@ namespace Sheet3.Controllers
             return View(currentRecord);
         }
 
-        public ActionResult Delete(Contact c)
+        public ActionResult Delete(int id)
         {
             DBManager db = new DBManager();
-            db.Delete(c);
-            
+            db.Delete(id);
+
             return RedirectToAction("Index");
         }
         [HttpGet]

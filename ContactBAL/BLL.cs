@@ -10,44 +10,27 @@ namespace ContactBAL
 {
     public class BLL
     {
+        public List<Contact> getAll()
+        {
+            return DLL.contactList.Where(x =>x.Active == true).ToList();
+
+        }
+
         public void Add(Contact c)
         {
             c.contactid = DLL.lastId++;
-            if(c.phone == null )
-            {
-                c.phone = "Not Available";
-            }
+            c.Active = true;
             DLL.contactList.Add(c);
 
         }
-        
-
-        public void Delete(Contact c)
+            public void Delete(int id)
         {
-            var tempRecord = DLL.contactList.Where(x => x.contactid == c.contactid).Single();
-            tempRecord.first = c.first;
-            tempRecord.last = c.last;
-            tempRecord.phone = c.phone;
-            tempRecord.Bphone = c.Bphone;
-            tempRecord.address = c.address;
-            tempRecord.notes = c.notes;
-            tempRecord.Active = false;
-            foreach (Contact contact in DLL.contactList)
-            {
-                if(contact.Active == true)
-                {
-                    DLL.contactList.Add(contact);
-                }
-             }
+            Details(id).Active = false;
         }
+
         public Contact Details(int id)
         {
             return DLL.contactList.Where(x => x.contactid == id).Single();
-
-        }
-        public List<Contact> getAll()
-        {
-            return DLL.contactList;
 
         }
 
@@ -59,7 +42,7 @@ namespace ContactBAL
             }
             else
             {
-                var tempRecord = DLL.contactList.Where(x => x.contactid == c.contactid).Single();
+                var tempRecord = DLL.contactList.Where(x => x.contactid == c.contactid).First();
                 tempRecord.first = c.first;
                 tempRecord.last = c.last;
                 tempRecord.phone = c.phone;
